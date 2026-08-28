@@ -1,0 +1,164 @@
+{
+  "id": "fox-and-grapes",
+  "title": "The Fox and the Grapes",
+  "source": "generated",
+  "scenes": [
+    {
+      "id": "meadow_walk",
+      "location": "the sunny meadow",
+      "biome": "meadow",
+      "timeOfDay": "day",
+      "narration": "One hot afternoon a hungry fox came trotting through the meadow.",
+      "emphasis": ["hungry fox"],
+      "props": [
+        { "id": "cloud_a", "kind": "cloud", "x": 0.22, "y": 0.14, "scale": 1.1, "layer": 0, "color": "#ffffff" },
+        { "id": "cloud_b", "kind": "cloud", "x": 0.74, "y": 0.1, "scale": 0.9, "layer": 0, "color": "#ffffff" },
+        { "id": "tree_g1", "kind": "tree", "x": 0.12, "y": 0.58, "scale": 0.9, "layer": 0, "color": "#4a9d70" },
+        { "id": "tree_g2", "kind": "pine", "x": 0.88, "y": 0.6, "scale": 1, "layer": 0, "color": "#3d8a63" },
+        { "id": "flower_g1", "kind": "flower", "x": 0.3, "y": 0.9, "scale": 1, "layer": 2, "color": "#ffd166" },
+        { "id": "flower_g2", "kind": "flower", "x": 0.66, "y": 0.93, "scale": 0.9, "layer": 2, "color": "#ff8fc7" },
+        { "id": "bush_g1", "kind": "bush", "x": 0.5, "y": 0.86, "scale": 1.1, "layer": 1, "color": "#4fae74" }
+      ],
+      "interaction": {
+        "type": "simple_character_action",
+        "prompt": "Help the fox hop through the tall grass!",
+        "action": "jump",
+        "actor": "fox",
+        "effort": 3
+      },
+      "companion": {
+        "intro": "Ooh, it's SO warm out here. Look at him go!",
+        "success": "Nice hopping! I'm getting hungry just watching.",
+        "retry": "Come on, one more hop! You've got this!",
+        "hint": "Tap the fox to make him jump!"
+      },
+      "reward": { "stars": 10 },
+      "nextScene": "the_vine"
+    },
+    {
+      "id": "the_vine",
+      "location": "the shady vine",
+      "biome": "enchanted_forest",
+      "timeOfDay": "day",
+      "narration": "High on a branch he spotted a bunch of ripe purple grapes.",
+      "emphasis": ["ripe purple grapes"],
+      "props": [
+        { "id": "tree_v1", "kind": "tree", "x": 0.2, "y": 0.6, "scale": 1.1, "layer": 1, "color": "#3d8a63" },
+        { "id": "tree_v2", "kind": "tree", "x": 0.8, "y": 0.64, "scale": 1, "layer": 1, "color": "#357a58" },
+        { "id": "grapes", "kind": "bush", "x": 0.52, "y": 0.34, "scale": 0.8, "layer": 1, "color": "#8b5cf6", "label": "the bunch of purple grapes" },
+        { "id": "leaf_bush_1", "kind": "bush", "x": 0.34, "y": 0.42, "scale": 0.7, "layer": 1, "color": "#4fae74" },
+        { "id": "leaf_bush_2", "kind": "bush", "x": 0.7, "y": 0.38, "scale": 0.75, "layer": 1, "color": "#41996d" },
+        { "id": "mushroom_v", "kind": "mushroom", "x": 0.24, "y": 0.9, "scale": 1, "layer": 2, "color": "#ef6f6c" },
+        { "id": "rock_v", "kind": "rock", "x": 0.78, "y": 0.92, "scale": 1, "layer": 2, "color": "#8d9aa8" }
+      ],
+      "interaction": {
+        "type": "choose_object",
+        "prompt": "Which one is the bunch of PURPLE grapes?",
+        "choices": [
+          { "id": "leaf_bush_1", "label": "green leaves", "correct": false },
+          { "id": "grapes", "label": "purple grapes", "correct": true },
+          { "id": "leaf_bush_2", "label": "more green leaves", "correct": false },
+          { "id": "mushroom_v", "label": "a red mushroom", "correct": false }
+        ]
+      },
+      "companion": {
+        "intro": "WHOA. Are those what I think they are?!",
+        "success": "GRAPES! Oh, they look so juicy!",
+        "retry": "Hmm, that's green. Purple is more like a plum!",
+        "hint": "Purple is the colour of grape juice. See any up high?"
+      },
+      "reward": { "stars": 15 },
+      "nextScene": "the_trail"
+    },
+    {
+      "id": "the_trail",
+      "location": "the forked trail",
+      "biome": "enchanted_forest",
+      "timeOfDay": "day",
+      "narration": "To reach them he needed a running start. Which way should he go?",
+      "emphasis": ["running start"],
+      "props": [
+        { "id": "tree_t1", "kind": "pine", "x": 0.1, "y": 0.62, "scale": 1, "layer": 1, "color": "#357a58" },
+        { "id": "tree_t2", "kind": "pine", "x": 0.9, "y": 0.62, "scale": 1, "layer": 1, "color": "#2f6b4f" },
+        { "id": "log_t", "kind": "log", "x": 0.5, "y": 0.88, "scale": 1.1, "layer": 2, "color": "#9a6b43" },
+        { "id": "flower_t", "kind": "flower", "x": 0.36, "y": 0.93, "scale": 0.9, "layer": 2, "color": "#c792ff" }
+      ],
+      "interaction": {
+        "type": "path_choice",
+        "prompt": "Take the long smooth trail so he can run fast!",
+        "paths": [
+          { "id": "rocky", "label": "the short rocky path", "x": 0.28, "y": 0.66, "correct": false },
+          { "id": "smooth", "label": "the long smooth trail", "x": 0.72, "y": 0.66, "correct": true }
+        ]
+      },
+      "companion": {
+        "intro": "Two ways! Which one, which one?",
+        "success": "Good call! Lots of room to build up speed!",
+        "retry": "Ooh, bumpy. Hard to run fast on rocks!",
+        "hint": "You need SPACE to run. Pick the long one!"
+      },
+      "reward": { "stars": 15 },
+      "nextScene": "the_words"
+    },
+    {
+      "id": "the_words",
+      "location": "the old signpost",
+      "biome": "enchanted_forest",
+      "timeOfDay": "dusk",
+      "narration": "A weathered sign stood by the TRAIL. The fox would TRY, and he would need to TRUST his legs.",
+      "emphasis": ["TRAIL", "TRY", "TRUST"],
+      "props": [
+        { "id": "sign_post", "kind": "log", "x": 0.5, "y": 0.7, "scale": 1.2, "layer": 1, "color": "#a97b4f", "label": "the old signpost" },
+        { "id": "firefly_w1", "kind": "firefly", "x": 0.28, "y": 0.5, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "firefly_w2", "kind": "firefly", "x": 0.74, "y": 0.46, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "bush_w", "kind": "bush", "x": 0.2, "y": 0.88, "scale": 1, "layer": 2, "color": "#3b8c64" }
+      ],
+      "interaction": {
+        "type": "reading_choice",
+        "prompt": "Can you help me read the sign?",
+        "words": [
+          { "word": "TRAIL", "pattern": "tr", "decoys": ["TRAIN", "RAIL", "TAIL"] },
+          { "word": "TRY", "pattern": "tr", "decoys": ["TRAY", "DRY", "CRY"] },
+          { "word": "TRUST", "pattern": "tr", "decoys": ["CRUST", "TRUCK", "RUST"] }
+        ]
+      },
+      "companion": {
+        "intro": "There's writing on it! I can't read it by myself...",
+        "success": "You read ALL of them! You're amazing at this!",
+        "retry": "Ooh that one's sneaky. Let's sound it out together.",
+        "hint": "Listen for the growly bit at the start: t-r-r-r."
+      },
+      "reward": { "stars": 25 },
+      "nextScene": "the_leap"
+    },
+    {
+      "id": "the_leap",
+      "location": "beneath the grapes",
+      "biome": "enchanted_forest",
+      "timeOfDay": "dusk",
+      "narration": "He leaped and leaped, but the grapes stayed out of reach. Help him place a stone to stand on.",
+      "emphasis": ["out of reach"],
+      "props": [
+        { "id": "tree_l1", "kind": "tree", "x": 0.18, "y": 0.6, "scale": 1.1, "layer": 1, "color": "#3d8a63" },
+        { "id": "grapes_high", "kind": "bush", "x": 0.56, "y": 0.26, "scale": 0.8, "layer": 1, "color": "#8b5cf6", "label": "the grapes" },
+        { "id": "standing_stone", "kind": "stone", "x": 0.24, "y": 0.9, "scale": 1.2, "layer": 2, "color": "#b9c3cd", "label": "a flat standing stone" },
+        { "id": "firefly_l", "kind": "firefly", "x": 0.8, "y": 0.52, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "bush_l", "kind": "bush", "x": 0.86, "y": 0.88, "scale": 1, "layer": 2, "color": "#41996d" }
+      ],
+      "interaction": {
+        "type": "drag_drop",
+        "prompt": "Drag the stone under the grapes so he can reach!",
+        "dragId": "standing_stone",
+        "dropZone": { "x": 0.56, "y": 0.72, "radius": 0.16, "label": "the spot right below the grapes" }
+      },
+      "companion": {
+        "intro": "So close! He just needs a little BOOST.",
+        "success": "HE GOT ONE! Sweet, sweet grapes. We did it together!",
+        "retry": "Not quite there. Try putting it right under them!",
+        "hint": "Slide it along the ground until it's under the purple bunch."
+      },
+      "reward": { "stars": 35 },
+      "nextScene": null
+    }
+  ]
+}

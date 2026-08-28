@@ -1,0 +1,194 @@
+{
+  "id": "fox-lost-star",
+  "title": "The Fox and the Lost Star",
+  "source": "builtin",
+  "scenes": [
+    {
+      "id": "forest",
+      "location": "the enchanted forest",
+      "biome": "enchanted_forest",
+      "timeOfDay": "dusk",
+      "narration": "A glowing star fell into the forest.",
+      "emphasis": ["glowing star"],
+      "props": [
+        { "id": "tree_far_1", "kind": "tree", "x": 0.08, "y": 0.62, "scale": 0.8, "layer": 0, "color": "#2f6b4f" },
+        { "id": "tree_far_2", "kind": "pine", "x": 0.24, "y": 0.58, "scale": 0.7, "layer": 0, "color": "#2a6047" },
+        { "id": "tree_far_3", "kind": "tree", "x": 0.78, "y": 0.6, "scale": 0.75, "layer": 0, "color": "#2f6b4f" },
+        { "id": "tree_mid_1", "kind": "tree", "x": 0.15, "y": 0.74, "scale": 1.1, "layer": 1, "color": "#3d8a63" },
+        { "id": "tree_mid_2", "kind": "pine", "x": 0.88, "y": 0.72, "scale": 1.2, "layer": 1, "color": "#357a58" },
+        { "id": "bush_1", "kind": "bush", "x": 0.35, "y": 0.86, "scale": 1, "layer": 2, "color": "#41996d" },
+        { "id": "bush_2", "kind": "bush", "x": 0.68, "y": 0.88, "scale": 1.1, "layer": 2, "color": "#3b8c64" },
+        { "id": "flower_1", "kind": "flower", "x": 0.46, "y": 0.9, "scale": 0.9, "layer": 2, "color": "#ff8fc7" },
+        { "id": "flower_2", "kind": "flower", "x": 0.58, "y": 0.93, "scale": 0.8, "layer": 2, "color": "#ffd166" },
+        { "id": "mushroom_1", "kind": "mushroom", "x": 0.26, "y": 0.92, "scale": 1, "layer": 2, "color": "#ef6f6c" },
+        { "id": "firefly_1", "kind": "firefly", "x": 0.4, "y": 0.55, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "firefly_2", "kind": "firefly", "x": 0.62, "y": 0.48, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "fallen_star", "kind": "star", "x": 0.53, "y": 0.72, "scale": 1.3, "layer": 1, "color": "#ffe66d", "label": "the glowing star" },
+        { "id": "rock_1", "kind": "rock", "x": 0.8, "y": 0.9, "scale": 1, "layer": 2, "color": "#8d9aa8" }
+      ],
+      "interaction": {
+        "type": "tap_target",
+        "target": "fallen_star",
+        "distractors": ["mushroom_1", "flower_1", "rock_1"],
+        "prompt": "Tap where the star landed!"
+      },
+      "companion": {
+        "intro": "WHOA! Did you see that?!",
+        "success": "Come on! Let's see where it landed!",
+        "retry": "Ooh, pretty... but that's not glowing. Keep looking!",
+        "hint": "Psst. Look for the thing that's shining."
+      },
+      "reward": { "stars": 10 },
+      "nextScene": "river"
+    },
+    {
+      "id": "river",
+      "location": "the wide river",
+      "biome": "river",
+      "timeOfDay": "day",
+      "narration": "The fox needs three stones to cross the river.",
+      "emphasis": ["three stones"],
+      "props": [
+        { "id": "tree_bank_1", "kind": "tree", "x": 0.07, "y": 0.6, "scale": 0.9, "layer": 0, "color": "#3d8a63" },
+        { "id": "tree_bank_2", "kind": "pine", "x": 0.93, "y": 0.58, "scale": 1, "layer": 0, "color": "#357a58" },
+        { "id": "reed_1", "kind": "reed", "x": 0.18, "y": 0.82, "scale": 1, "layer": 2, "color": "#5cb87f" },
+        { "id": "reed_2", "kind": "reed", "x": 0.84, "y": 0.84, "scale": 1.1, "layer": 2, "color": "#5cb87f" },
+        { "id": "lilypad_1", "kind": "lilypad", "x": 0.38, "y": 0.78, "scale": 1, "layer": 1, "color": "#4fae74" },
+        { "id": "lilypad_2", "kind": "lilypad", "x": 0.66, "y": 0.84, "scale": 0.9, "layer": 1, "color": "#4fae74" },
+        { "id": "log_1", "kind": "log", "x": 0.12, "y": 0.9, "scale": 1, "layer": 2, "color": "#9a6b43" },
+        { "id": "stone_1", "kind": "stone", "x": 0.22, "y": 0.93, "scale": 1.1, "layer": 2, "color": "#b9c3cd", "label": "a smooth grey stone" },
+        { "id": "stone_2", "kind": "stone", "x": 0.5, "y": 0.6, "scale": 1, "layer": 1, "color": "#b9c3cd", "label": "a stone by the reeds" },
+        { "id": "stone_3", "kind": "stone", "x": 0.79, "y": 0.91, "scale": 1.15, "layer": 2, "color": "#b9c3cd", "label": "a stone near the bank" },
+        { "id": "flower_r1", "kind": "flower", "x": 0.3, "y": 0.92, "scale": 0.8, "layer": 2, "color": "#ffd166" },
+        { "id": "cloud_1", "kind": "cloud", "x": 0.28, "y": 0.16, "scale": 1.2, "layer": 0, "color": "#ffffff" },
+        { "id": "cloud_2", "kind": "cloud", "x": 0.72, "y": 0.11, "scale": 1, "layer": 0, "color": "#ffffff" }
+      ],
+      "interaction": {
+        "type": "collect_items",
+        "prompt": "Find three stones so the fox can cross!",
+        "targets": ["stone_1", "stone_2", "stone_3"],
+        "count": 3
+      },
+      "companion": {
+        "intro": "Uh oh... I can't swim THAT far!",
+        "success": "Three stones! Follow me, hop hop HOP!",
+        "retry": "Hmm, that's not a stone. Stones are round and grey!",
+        "hint": "I think I saw one hiding near the reeds..."
+      },
+      "reward": { "stars": 15 },
+      "nextScene": "butterflies"
+    },
+    {
+      "id": "butterflies",
+      "location": "the butterfly meadow",
+      "biome": "meadow",
+      "timeOfDay": "day",
+      "narration": "The BLUE butterfly knows the way.",
+      "emphasis": ["BLUE"],
+      "props": [
+        { "id": "tree_m1", "kind": "tree", "x": 0.1, "y": 0.55, "scale": 0.85, "layer": 0, "color": "#4a9d70" },
+        { "id": "tree_m2", "kind": "tree", "x": 0.9, "y": 0.57, "scale": 0.9, "layer": 0, "color": "#43926a" },
+        { "id": "cloud_m1", "kind": "cloud", "x": 0.2, "y": 0.13, "scale": 1.1, "layer": 0, "color": "#ffffff" },
+        { "id": "cloud_m2", "kind": "cloud", "x": 0.78, "y": 0.18, "scale": 0.9, "layer": 0, "color": "#ffffff" },
+        { "id": "flower_m1", "kind": "flower", "x": 0.16, "y": 0.88, "scale": 1, "layer": 2, "color": "#ff8fc7" },
+        { "id": "flower_m2", "kind": "flower", "x": 0.34, "y": 0.93, "scale": 0.9, "layer": 2, "color": "#ffd166" },
+        { "id": "flower_m3", "kind": "flower", "x": 0.62, "y": 0.9, "scale": 1, "layer": 2, "color": "#c792ff" },
+        { "id": "flower_m4", "kind": "flower", "x": 0.85, "y": 0.94, "scale": 0.85, "layer": 2, "color": "#ff8fc7" },
+        { "id": "bush_m1", "kind": "bush", "x": 0.72, "y": 0.82, "scale": 1, "layer": 1, "color": "#4fae74" },
+        { "id": "butterfly_blue", "kind": "butterfly", "x": 0.5, "y": 0.45, "scale": 1.2, "layer": 1, "color": "#4aa3ff", "label": "the blue butterfly" },
+        { "id": "butterfly_red", "kind": "butterfly", "x": 0.28, "y": 0.38, "scale": 1.1, "layer": 1, "color": "#ff6b6b", "label": "the red butterfly" },
+        { "id": "butterfly_yellow", "kind": "butterfly", "x": 0.7, "y": 0.34, "scale": 1.1, "layer": 1, "color": "#ffd93d", "label": "the yellow butterfly" },
+        { "id": "butterfly_green", "kind": "butterfly", "x": 0.4, "y": 0.6, "scale": 1, "layer": 1, "color": "#6bcB77", "label": "the green butterfly" }
+      ],
+      "interaction": {
+        "type": "choose_object",
+        "prompt": "Which one is the BLUE butterfly?",
+        "choices": [
+          { "id": "butterfly_red", "label": "red butterfly", "correct": false },
+          { "id": "butterfly_blue", "label": "blue butterfly", "correct": true },
+          { "id": "butterfly_yellow", "label": "yellow butterfly", "correct": false },
+          { "id": "butterfly_green", "label": "green butterfly", "correct": false }
+        ]
+      },
+      "companion": {
+        "intro": "Okay... which one is blue?",
+        "success": "YES! Follow that butterfly!",
+        "retry": "Ooh so pretty! But blue is like the sky. Try again!",
+        "hint": "Blue is the colour of the sky up there. See one like that?"
+      },
+      "reward": { "stars": 15 },
+      "nextScene": "cave"
+    },
+    {
+      "id": "cave",
+      "location": "the whispering cave",
+      "biome": "cave",
+      "timeOfDay": "night",
+      "narration": "The BRAVE fox crossed the BRIDGE and followed the BROWN footprints.",
+      "emphasis": ["BRAVE", "BRIDGE", "BROWN"],
+      "props": [
+        { "id": "stalag_1", "kind": "stalagmite", "x": 0.12, "y": 0.8, "scale": 1.2, "layer": 1, "color": "#6b5f7a" },
+        { "id": "stalag_2", "kind": "stalagmite", "x": 0.88, "y": 0.84, "scale": 1.4, "layer": 1, "color": "#5f5570" },
+        { "id": "stalag_3", "kind": "stalagmite", "x": 0.72, "y": 0.78, "scale": 0.9, "layer": 0, "color": "#574d66" },
+        { "id": "crystal_1", "kind": "crystal", "x": 0.3, "y": 0.42, "scale": 1.1, "layer": 1, "color": "#7ad7f0" },
+        { "id": "crystal_2", "kind": "crystal", "x": 0.63, "y": 0.36, "scale": 0.9, "layer": 1, "color": "#a78bfa" },
+        { "id": "crystal_3", "kind": "crystal", "x": 0.46, "y": 0.28, "scale": 0.8, "layer": 0, "color": "#7ad7f0" },
+        { "id": "bridge_1", "kind": "bridge", "x": 0.5, "y": 0.7, "scale": 1.2, "layer": 1, "color": "#a97b4f" },
+        { "id": "footprint_1", "kind": "footprint", "x": 0.32, "y": 0.9, "scale": 1, "layer": 2, "color": "#8b6240" },
+        { "id": "footprint_2", "kind": "footprint", "x": 0.46, "y": 0.92, "scale": 1, "layer": 2, "color": "#8b6240" },
+        { "id": "footprint_3", "kind": "footprint", "x": 0.6, "y": 0.9, "scale": 1, "layer": 2, "color": "#8b6240" },
+        { "id": "firefly_c1", "kind": "firefly", "x": 0.2, "y": 0.6, "scale": 1, "layer": 1, "color": "#ffe9a3" },
+        { "id": "firefly_c2", "kind": "firefly", "x": 0.8, "y": 0.55, "scale": 1, "layer": 1, "color": "#ffe9a3" }
+      ],
+      "interaction": {
+        "type": "reading_choice",
+        "prompt": "Can you help me read these?",
+        "words": [
+          { "word": "BRAVE", "pattern": "br", "decoys": ["CAVE", "GRAVE", "BRAKE"] },
+          { "word": "BRIDGE", "pattern": "br", "decoys": ["FRIDGE", "BADGE", "BRIGHT"] },
+          { "word": "BROWN", "pattern": "br", "decoys": ["CROWN", "DROWN", "BROOM"] }
+        ]
+      },
+      "companion": {
+        "intro": "It's dark in here... can you help me read this?",
+        "success": "WE DID IT! You're the best reader ever!",
+        "retry": "Ooh, tricky one. Want to try it together?",
+        "hint": "Listen: b-r-r-r. It starts with a buzzy BR sound!"
+      },
+      "reward": { "stars": 25 },
+      "nextScene": "return_star"
+    },
+    {
+      "id": "return_star",
+      "location": "the hill under the night sky",
+      "biome": "night_sky",
+      "timeOfDay": "night",
+      "narration": "The star belongs in the sky. Can you put it back?",
+      "emphasis": ["belongs in the sky"],
+      "props": [
+        { "id": "moon_1", "kind": "moon", "x": 0.82, "y": 0.16, "scale": 1.2, "layer": 0, "color": "#fff6d6" },
+        { "id": "pine_n1", "kind": "pine", "x": 0.1, "y": 0.72, "scale": 1.1, "layer": 1, "color": "#1f4d3a" },
+        { "id": "pine_n2", "kind": "pine", "x": 0.9, "y": 0.75, "scale": 1.2, "layer": 1, "color": "#1b4534" },
+        { "id": "bush_n1", "kind": "bush", "x": 0.25, "y": 0.9, "scale": 1, "layer": 2, "color": "#24573f" },
+        { "id": "bush_n2", "kind": "bush", "x": 0.75, "y": 0.92, "scale": 1.1, "layer": 2, "color": "#20503a" },
+        { "id": "firefly_n1", "kind": "firefly", "x": 0.35, "y": 0.66, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "firefly_n2", "kind": "firefly", "x": 0.66, "y": 0.6, "scale": 1, "layer": 1, "color": "#fff3a3" },
+        { "id": "the_star", "kind": "star", "x": 0.5, "y": 0.82, "scale": 1.5, "layer": 2, "color": "#ffe66d", "label": "the lost star" }
+      ],
+      "interaction": {
+        "type": "drag_drop",
+        "prompt": "Drag the star up into the sky!",
+        "dragId": "the_star",
+        "dropZone": { "x": 0.5, "y": 0.2, "radius": 0.22, "label": "the empty place in the sky" }
+      },
+      "companion": {
+        "intro": "There it is! Let's put it back where it belongs!",
+        "success": "LOOK AT THE SKY! We did that. TOGETHER!",
+        "retry": "Almost! Higher, up where the moon is!",
+        "hint": "Drag it wayyyy up. Up where the moon lives!"
+      },
+      "reward": { "stars": 35 },
+      "nextScene": null
+    }
+  ]
+}

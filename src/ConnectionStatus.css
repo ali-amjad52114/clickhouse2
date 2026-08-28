@@ -1,0 +1,53 @@
+.ch-card {
+  max-width: 32rem;
+  margin: 4rem auto;
+  padding: 2rem;
+  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.ch-card h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.ch-status {
+  margin: 0;
+  font-weight: 600;
+}
+
+.ch-status::before {
+  content: '';
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ch-status--pending { color: #b8860b; }
+.ch-status--ok { color: #2e9e5b; }
+.ch-status--error { color: #d64545; }
+
+.ch-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.ch-details dt { opacity: 0.7; }
+.ch-details dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+.ch-error {
+  margin: 1rem 0 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, #d64545 12%, transparent);
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}

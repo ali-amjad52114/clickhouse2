@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TEMP art preview</title>
+    <style>
+      body { margin: 0; background: #14161c; display: flex; justify-content: center; }
+      #game canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script type="module">
+      import Phaser from 'phaser';
+      import ProceduralSceneArtist from '/src/game/art/SceneArtist.ts';
+      import story from '/src/stories/fox-and-lost-star.json';
+
+      const artist = new ProceduralSceneArtist();
+      const W = 1280, H = 720;
+      const index = Number(new URLSearchParams(location.search).get('scene') ?? 0);
+      const sc = story.scenes[index];
+
+      class Preview extends Phaser.Scene {
+        create() {
+          const palette = artist.paletteFor(sc.biome, sc.timeOfDay);
+          const ctx = { scene: this, width: W, height: H, palette };
+          this.ctx = ctx;
+          this.backdrop = artist.paintBackdrop(ctx, sc.biome, sc.timeOfDay);
+
+          this.props = [];
+          for (const p of sc.props) {
+            const view = artist.drawProp(ctx, p);
+            this.backdrop.layers[view.layer].add(view.root);
+            view.idle();
+            this.props.push(view);
+          }
+
+          const fox = artist.createFox(ctx);
+          fox.root.setDepth(26);
+          fox.root.setPosition(W * 0.3, H * 0.86);
+          const mimo = artist.createMimo(ctx);
+          mimo.root.setDepth(27);
+          mimo.root.setPosition(W * 0.42, H * 0.88);
+          this.fox = fox;
+          this.mimo = mimo;
+
+          const moods = ['idle','happy','excited','curious','surprised','worried','scared','thinking','proud','sad'];
+          let mi = 0;
+          window.__setMood = (m) => { fox.setMood(m); mimo.setMood(m); };
+          window.__cycle = () => { mi = (mi + 1) % moods.length; window.__setMood(moods[mi]); return moods[mi]; };
+          window.__celebrate = () => { mimo.celebrate(); fox.celebrate(); };
+          window.__burst = () => artist.burst(ctx, 0.5, 0.5, { count: 34 });
+          window.__hop = () => mimo.moveTo(0.72, 0.8, { hop: true });
+          window.__trot = () => fox.moveTo(0.7, 0.86);
+          window.__point = () => mimo.pointAt(0.55, 0.4);
+          window.__highlight = () => { const t = this.props[this.props.length - 2]; t.highlight(true); };
+          window.__wobble = () => this.props[0].wobble();
+          window.__propCelebrate = () => this.props[this.props.length - 2].celebrate();
+          window.__ready = true;
+        }
+        update(_t, delta) { this.backdrop?.update(delta); }
+      }
+
+      window.__game = new Phaser.Game({
+        type: Phaser.AUTO,
+        width: W, height: H,
+        parent: 'game',
+        backgroundColor: '#000000',
+        render: { preserveDrawingBuffer: true },
+        scene: Preview,
+      });
+
+      window.__shot = (w = 640, q = 0.62) => {
+        const src = document.querySelector('canvas');
+        const off = document.createElement('canvas');
+        off.width = w; off.height = Math.round((w * H) / W);
+        off.getContext('2d').drawImage(src, 0, 0, off.width, off.height);
+        window.__data = off.toDataURL('image/jpeg', q).split(',')[1];
+        return window.__data.length;
+      };
+      window.__chunk = (i, n = 18000) => window.__data.slice(i * n, (i + 1) * n);
+    </script>
+  </body>
+</html>
